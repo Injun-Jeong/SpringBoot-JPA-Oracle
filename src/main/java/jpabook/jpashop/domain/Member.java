@@ -15,6 +15,9 @@ public class Member {
     @Column(name = "member_id")
     private Long id;
 
+    @Column(name = "ssn", unique = true)
+    private String ssn;
+
     @Column(name = "name")
     private String name;
 
@@ -23,6 +26,5 @@ public class Member {
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
     @Column(name = "order_id")
-    List<Order> orders = new ArrayList<>();
-
+    private List<Order> orders = new ArrayList<>();
 }
