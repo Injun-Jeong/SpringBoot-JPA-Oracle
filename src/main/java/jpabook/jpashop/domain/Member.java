@@ -24,4 +24,5 @@ public class Member {
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
     @Column(name = "order_id")
     List<Order> orders = new ArrayList<>();
+
 }

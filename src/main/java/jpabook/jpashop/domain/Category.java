@@ -29,8 +29,12 @@ public class Category {
     @JoinColumn(name = "parent_id")
     private Category parent;
 
-    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL)
     @Column(name = "child_id")
     private List<Category> child = new ArrayList<>();
 
+    public void addChildCategory(Category category) {
+        this.child.add(category);
+        category.setParent(this);
+    }
 }

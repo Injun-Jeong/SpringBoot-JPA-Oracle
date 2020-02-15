@@ -20,7 +20,7 @@ public class Address {
     @Column(name = "zipcode")
     private String zipcode;
 
-    public Address() {
+    protected Address() {
     }
 
     public Address(String city, String street, String zipcode) {
