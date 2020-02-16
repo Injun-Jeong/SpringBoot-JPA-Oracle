@@ -17,6 +17,20 @@ class ItemTest {
     @Autowired EntityManager em;
 
     @Test
+    public void addStockTest() throws Exception {
+        //given
+        Book book = createBook(10);
+
+        int supplies = 2;
+
+        //when
+        book.addStock(supplies);
+        
+        //then
+        assertEquals(12, book.getStockQuantity());
+    }
+    
+    @Test
     public void removeStockTest() throws Exception {
         //given
         Book book = createBook(10);
