@@ -25,11 +25,11 @@ class ItemTest {
 
         //when
         book.addStock(supplies);
-        
+
         //then
         assertEquals(12, book.getStockQuantity());
     }
-    
+
     @Test
     public void removeStockTest() throws Exception {
         //given

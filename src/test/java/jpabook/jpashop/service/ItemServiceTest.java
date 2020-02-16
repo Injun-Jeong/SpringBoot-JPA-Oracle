@@ -19,7 +19,7 @@ class ItemServiceTest {
 
     @Autowired ItemRepository itemRepository;
     @Autowired ItemService itemService;
-    
+
     @Test
     public void saveTest() throws Exception {
         //given
@@ -28,11 +28,11 @@ class ItemServiceTest {
 
         //when
         itemService.savaItem(book);
-        
+
         //then
         assertEquals(book, itemRepository.findOne(book.getId()));
     }
-    
+
     @Test
     public void findByNameTest() throws Exception {
         //given
