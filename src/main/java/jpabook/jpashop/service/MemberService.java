@@ -53,4 +53,12 @@ public class MemberService {
         return memberRepository.findByName(memberName);
     }
 
+    /**
+     * update the name of a member by using dirty checking
+     */
+    @Transactional
+    public void update(Long id, String name) {
+        Member member = memberRepository.findOne(id);
+        member.setName(name);
+    }
 }

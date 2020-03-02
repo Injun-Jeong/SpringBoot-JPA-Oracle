@@ -49,6 +49,7 @@ public class ItemController {
     }
 
     @GetMapping(value = "/items/{itemId}/edit")
+    // @PathVariable 어노테이션이 적용된 동일한 이름을 갖는 파라미터에 매핑
     public String updateItemForm(@PathVariable("itemId") Long itemId, Model model) {
         Book item = (Book) itemService.findOne(itemId);
         BookForm form = new BookForm();
@@ -60,8 +61,8 @@ public class ItemController {
     }
 
     @PostMapping(value = "/items/{itemId}/edit")
-    public String updateItem(@ModelAttribute("form") BookForm form) {
-        itemService.updateItem(form.getId(), form.getName(), form.getPrice());
+    public String updateItem(@PathVariable Long itemId, @ModelAttribute("form") BookForm form) {
+        itemService.updateItem(itemId, form.getName(), form.getPrice());
         return "redirect:/items";
     }
 }
